@@ -25,6 +25,29 @@ h1{
     font-weight: 300;
 }
 
+@keyframes hide {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes show {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.show{
+    animation: show 100ms linear forwards;
+}
+.hide{
+    animation: hide 100ms linear forwards;
+}
+
 /*start*/
 
 .bg_img{
