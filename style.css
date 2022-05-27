@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    font-family: 'Raleway', sans-serif;
+
+    color: aliceblue;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+h1{
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+/*start*/
+
+.bg_img{
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+}
+
+.principal{
+    height: 100%;
+    display: grid;
+    grid-template-columns: max-content minmax(calc(3 * 140px) auto);
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+
+    justify-content: end;
+
+    grid-column: 3;
+}
+.nav_item{
+    height: fit-content;
+    padding: 1rem 2rem;
+
+    font-size: 1.2rem;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+.nav_item:hover{
+    color: black;
+    background-color: aliceblue;
+}
+
+.transparent{
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: max-content auto;
+
+    grid-column: 1;
+    grid-row: 1;
+    
+    background-color: #6c43ad3d;
+    backdrop-filter: blur(20px);
+
+    position: relative;
+}
+.social{
+    height: 100%;
+    position: relative;
+    z-index: -1;
+        
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    font-size: 2rem;
+}
+.social >*{
+    padding: 1rem;
+    background-color: black;
+
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+.social > *:hover{
+    color: black;
+    background-color: aliceblue;
+}
+.info{
+    max-width: 900px;
+    height: 100%;
+    margin: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.info p{
+    font-weight: 500;
+}
