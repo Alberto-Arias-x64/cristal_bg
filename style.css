@@ -9,11 +9,11 @@ body{
     height: 100vh;
 
     position: relative;
-    overflow: hidden;
 
     font-family: 'Raleway', sans-serif;
 
     color: aliceblue;
+    overflow: hidden;
 }
 img{
     width: 100%;
@@ -21,119 +21,238 @@ img{
     object-fit: cover;
 }
 h1{
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 300;
-}
-
-@keyframes hide {
-    0%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
-}
-@keyframes show {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+    word-spacing: -0.4ch;
 }
 .show{
-    animation: show 100ms linear forwards;
+    transition: opacity 200ms ease-in-out;
+    opacity: 1;
 }
 .hide{
-    animation: hide 100ms linear forwards;
+    transition: opacity 500ms ease-in-out;
+    opacity: 0;
 }
 
-/*start*/
-
-.bg_img{
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    z-index: -1;
+@keyframes hide_element {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        z-index: -3;
+    }
 }
 
-.principal{
-    height: 100%;
-    display: grid;
-    grid-template-columns: max-content minmax(calc(3 * 140px) auto);
-}
+@media (max-width:767px) {
+    /*start*/
+    .cover_load{
+        width: 100%;
+        height: 100%;
 
-.nav{
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-
-    justify-content: end;
-
-    grid-column: 3;
-}
-.nav_item{
-    height: fit-content;
-    padding: 1rem 2rem;
-
-    font-size: 1.2rem;
-    font-weight: 800;
-
-    cursor: pointer;
-    transition: 200ms ease-in-out;
-}
-.nav_item:hover{
-    color: black;
-    background-color: aliceblue;
-}
-
-.transparent{
-    height: 100%;
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: max-content auto;
-
-    grid-column: 1;
-    grid-row: 1;
-    
-    background-color: #6c43ad3d;
-    backdrop-filter: blur(20px);
-
-    position: relative;
-}
-.social{
-    height: 100%;
-    position: relative;
-    z-index: -1;
+        position: absolute;
+        z-index: 2;
         
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
+        background-color: black;
+        animation: hide_element 1200ms ease-in-out forwards;
+        animation-delay: 500ms;
+    }
+    .bg_img{
+        width: 100%;
+        height: 100%;
 
-    font-size: 2rem;
-}
-.social >*{
-    padding: 1rem;
-    background-color: black;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+    .img_bg{
+        position: absolute;
+    }
 
-    cursor: pointer;
-    transition: 200ms ease-in-out;
-}
-.social > *:hover{
-    color: black;
-    background-color: aliceblue;
-}
-.info{
-    max-width: 900px;
-    height: 100%;
-    margin: 1rem;
+    .principal{
+        height: 100%;
+        display: grid;
+        grid-template-rows: max-content auto;
+    }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;   
+    .nav{
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+
+        justify-content: end;
+
+    }
+    .nav_item{
+        height: fit-content;
+        padding: 1rem 2rem;
+
+        font-size: 1.2rem;
+        font-weight: 800;
+
+        cursor: pointer;
+        transition: 200ms ease-in-out;
+    }
+    .nav_item:hover{
+        color: black;
+        background-color: aliceblue;
+    }
+
+    .transparent{
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        grid-template-rows: auto max-content;
+
+        position: relative;
+    }
+    .social{
+        height: 100%;
+        position: relative;
+        z-index: -1;
+            
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+
+        grid-row: 2;
+
+        font-size: 2rem;
+    }
+    .social >*{
+        padding: 1rem;
+        background-color: black;
+
+        cursor: pointer;
+        transition: 200ms ease-in-out;
+    }
+    .social > *:hover{
+        color: black;
+        background-color: aliceblue;
+    }
+    .info{
+        max-width: 900px;
+        height: 100%;
+        margin: 1rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+    }
+    .info > div{
+        padding: 1rem;
+        background-color: #6c43ad3d;
+        backdrop-filter: blur(20px);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    }
+    .info p{
+        font-weight: 500;
+    }
 }
-.info p{
-    font-weight: 500;
+@media (min-width:768px) {
+    /*start*/
+    .cover_load{
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        z-index: 2;
+        
+        background-color: black;
+        animation: hide_element 1200ms ease-in-out forwards;
+        animation-delay: 500ms;
+    }
+    .bg_img{
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+    .img_bg{
+        position: absolute;
+    }
+
+    .principal{
+        height: 100%;
+        display: grid;
+        grid-template-columns: max-content minmax(calc(3 * 140px) auto);
+    }
+
+    .nav{
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+
+        justify-content: end;
+
+        grid-column: 3;
+    }
+    .nav_item{
+        height: fit-content;
+        padding: 1rem 2rem;
+
+        font-size: 1.2rem;
+        font-weight: 800;
+
+        cursor: pointer;
+        transition: 200ms ease-in-out;
+    }
+    .nav_item:hover{
+        color: black;
+        background-color: aliceblue;
+    }
+
+    .transparent{
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: max-content auto;
+
+        grid-column: 1;
+        grid-row: 1;
+        
+        background-color: #6c43ad3d;
+        backdrop-filter: blur(20px);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+        position: relative;
+    }
+    .social{
+        height: 100%;
+        position: relative;
+        z-index: -1;
+            
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        font-size: 2rem;
+    }
+    .social >*{
+        padding: 1rem;
+        background-color: black;
+
+        cursor: pointer;
+        transition: 200ms ease-in-out;
+    }
+    .social > *:hover{
+        color: black;
+        background-color: aliceblue;
+    }
+    .info{
+        max-width: 900px;
+        height: 100%;
+        margin: 1rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+    }
+    .info p{
+        font-weight: 500;
+    }
 }
